@@ -47,15 +47,22 @@ function App() {
     const [messages]= useCollectionData(query, {idField: 'id'});
     
     const [formValue, setFormValue] = useState('');
+
+    const sendMessage =async(e) => {
+
+
+    }
+
     return(
+      
       <React.Fragment>
       <div>{messages && messages.map(msg => <ChatMessage  key={msg.id} message={msg} />)}</div>
       </React.Fragment>
     )
   }
 
-  <form>
-  <input />
+  <form onSubmit={sendMessage}>
+  <input value={formValue} onChange={(e =>setFormValue(e.target.value))} />
 
   <button type='submit'>Submit </button>
   </form>
